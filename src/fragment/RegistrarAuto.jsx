@@ -12,7 +12,7 @@ export const RegistrarAuto = () => {
   const navegation = useNavigate();
   const [marcas, setMarcas] = useState([]);//para listar marcas
   const [llmarcas, setLlmarcas] = useState(false);//para listar marcas
-  const { verMarcas, setVerMarcas } = useForm();//para listar marcas
+  const { watch, setValue } = useForm();//para listar marcas
 
   //acciones
   // onsubmit
@@ -31,6 +31,7 @@ export const RegistrarAuto = () => {
         navegation("/autoss");      
       } else {
         mensajes(info.msg);
+        navegation("/autoss");  
       }
     }
     );
@@ -93,11 +94,11 @@ export const RegistrarAuto = () => {
                   </div>
                   {/* ESCOGER MARCA */}
                   <div className="form-group">
-                    <select className='form-control' {...register('marca', { required: true })} value={verMarcas('marca')} onChange={(e) => setVerMarcas('marca', e.target.value)}>
+                    <select className='form-control' {...register('marca', { required: true })} value={watch('marca')} onChange={(e) => setValue('marca', e.target.value)}>
                       <option value="">Elija una marca</option>
-                      {Array.isArray(marcas) && marcas.map((m, i) => (
-                        <option key={i} value={m.external_id}>
-                          {m.nombre + " - " + m.modelo}
+                      {Array.isArray(marcas) && marcas.map((mar, i) => (
+                        <option key={i} value={mar.external_id}>
+                          {mar.nombre + " - " + mar.modelo}
                         </option>
                       ))}
                     </select>
