@@ -7,7 +7,7 @@ const Principal = () => {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p><code>K.G</code></p>
-                <a className="App-link" href={"/sesion"} rel="noopener noreferrer">Taller 2</a>
+                <a className="App-link" href={"/sesion"} rel="noopener noreferrer">Practica</a>
             </header>
         </div >
     );
